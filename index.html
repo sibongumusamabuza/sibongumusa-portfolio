@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sibongumusa Mabuza — Digital Skills Facilitator &amp; Systems Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#16213E;
+    --navy-deep:#0F1730;
+    --parchment:#F7F3EA;
+    --ink:#211C16;
+    --ochre:#C98A2C;
+    --coral:#B23A2E;
+    --line: rgba(33,28,22,0.14);
+    --line-light: rgba(247,243,234,0.22);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--parchment);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    font-weight:400;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    margin:0;
+  }
+  a{color:inherit;}
+  img{display:block;max-width:100%;}
+
+  .wrap{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 6vw;
+  }
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(247,243,234,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:16px; padding-bottom:16px;
+  }
+  .nav-name{font-family:'Fraunces',serif; font-size:1.05rem; font-weight:600; letter-spacing:0.01em;}
+  .nav-links{display:flex; gap:24px; font-size:0.95rem;}
+  .nav-links a{text-decoration:none; opacity:0.75; transition:opacity .2s;}
+  .nav-links a:hover{opacity:1;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:var(--navy);
+    color:var(--parchment);
+    position:relative;
+    overflow:hidden;
+  }
+  .hero .wrap{
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    align-items:stretch;
+    gap:0;
+    padding-left:0; padding-right:0;
+    max-width:none;
+  }
+  .hero-text{
+    padding: 9vh 6vw 8vh clamp(24px,6vw,90px);
+    display:flex; flex-direction:column; justify-content:center;
+    position:relative;
+  }
+  .eyebrow{
+    font-size:0.92rem;
+    font-weight:500;
+    letter-spacing:0.02em;
+    color:var(--ochre);
+    margin-bottom:22px;
+    max-width:34ch;
+  }
+  .hero h1{
+    font-size:clamp(2.4rem, 5vw, 4rem);
+    line-height:1.08;
+    letter-spacing:-0.01em;
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--ochre);
+  }
+  .hero-role{
+    margin-top:22px;
+    font-size:1.15rem;
+    max-width:38ch;
+    color:rgba(247,243,234,0.82);
+  }
+  .hero-meta{
+    margin-top:44px;
+    display:flex; gap:40px;
+    border-top:1px solid var(--line-light);
+    padding-top:24px;
+    flex-wrap:wrap;
+  }
+  .hero-meta div span{display:block;}
+  .hero-meta .num{font-family:'Fraunces',serif; font-size:1.5rem;}
+  .hero-meta .lab{font-size:0.86rem; color:rgba(247,243,234,0.78); margin-top:4px; max-width:16ch; line-height:1.35;}
+  .hero-img{
+    position:relative;
+    min-height:420px;
+  }
+  .hero-img img{
+    width:100%; height:100%; object-fit:cover;
+    object-position:top center;
+    filter:saturate(0.98);
+  }
+  .hero-img::after{
+    content:"";
+    position:absolute; inset:0;
+    background:linear-gradient(to right, var(--navy) 0%, rgba(22,33,62,0) 14%);
+  }
+
+  /* ---------- SECTION HEADERS ---------- */
+  .section{padding:11vh 0;}
+  .section-head{
+    display:grid;
+    grid-template-columns:0.6fr 1fr;
+    gap:40px;
+    margin-bottom:64px;
+    align-items:end;
+    border-bottom:1px solid var(--line);
+    padding-bottom:28px;
+  }
+  .section-head .tag{
+    font-size:0.9rem;
+    font-weight:600;
+    letter-spacing:0.02em;
+    color:var(--coral);
+  }
+  .section-head h2{
+    font-size:clamp(1.8rem,3vw,2.5rem);
+  }
+  .section-head p{
+    max-width:46ch;
+    color:rgba(33,28,22,0.68);
+    font-size:1rem;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:70px;
+    align-items:start;
+  }
+  .about-grid p{font-size:1.08rem; max-width:52ch;}
+  .about-grid p + p{margin-top:20px;}
+  .quote-block{
+    border-left:2px solid var(--ochre);
+    padding-left:28px;
+  }
+  .quote-block p{
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-size:1.5rem;
+    line-height:1.4;
+    color:var(--navy);
+  }
+  .quote-block .attr{
+    margin-top:16px;
+    font-family:'Work Sans',sans-serif;
+    font-style:normal;
+    font-size:0.85rem;
+    color:rgba(33,28,22,0.6);
+  }
+  .quote-block img{
+    margin-top:26px;
+    width:100%;
+    max-height:240px;
+    object-fit:cover;
+    border-radius:2px;
+  }
+  .quote-photo-credit{
+    margin-top:8px;
+    font-family:'Work Sans',sans-serif;
+    font-style:normal;
+    font-size:0.85rem;
+    color:rgba(33,28,22,0.68);
+  }
+
+  /* ---------- TESTIMONIALS ---------- */
+  .testimonial-card{
+    border-left:2px solid var(--ochre);
+    padding-left:28px;
+    max-width:70ch;
+  }
+  .testimonial-card p.testimonial-quote{
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-size:1.35rem;
+    line-height:1.5;
+    color:var(--navy);
+    margin:0;
+  }
+  .testimonial-card .attr{
+    margin-top:16px;
+    font-family:'Work Sans',sans-serif;
+    font-style:normal;
+    font-size:0.9rem;
+    color:rgba(33,28,22,0.65);
+  }
+  .testimonial-card .attr strong{
+    color:var(--ink);
+    font-weight:600;
+  }
+
+  /* ---------- JOURNEY ---------- */
+  .journey{
+    background:var(--navy);
+    color:var(--parchment);
+  }
+  .journey .wrap{padding-top:11vh; padding-bottom:11vh;}
+  .journey .section-head{border-bottom:1px solid var(--line-light);}
+  .journey .section-head .tag{color:var(--ochre);}
+  .journey .section-head p{color:rgba(247,243,234,0.72);}
+  .journey-grid{
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:32px;
+  }
+  .journey-card{
+    padding:36px;
+    border:1px solid var(--line-light);
+    border-radius:4px;
+  }
+  .journey-number{
+    font-family:'Fraunces',serif;
+    color:var(--ochre);
+    font-size:1.5rem;
+    margin-bottom:14px;
+  }
+  .journey-card h3{
+    font-size:1.35rem;
+    margin-bottom:18px;
+    max-width:22ch;
+  }
+  .journey-card p{
+    font-size:0.98rem;
+    color:rgba(247,243,234,0.78);
+    line-height:1.7;
+  }
+  .journey-card p + p{margin-top:14px;}
+  .journey-card strong{color:var(--ochre); font-weight:600;}
+  .journey-photo{
+    margin-top:26px;
+    border-radius:2px;
+    overflow:hidden;
+    border:1px solid var(--line-light);
+  }
+  .journey-photo img{
+    width:100%; height:220px; object-fit:cover;
+    object-position:top center;
+  }
+  .journey-photo figcaption{
+    font-size:0.85rem;
+    color:rgba(247,243,234,0.75);
+    padding:10px 2px 0;
+    line-height:1.5;
+  }
+  .journey-closing{
+    margin-top:40px;
+    padding-top:36px;
+    border-top:1px solid var(--line-light);
+  }
+  .journey-closing h3{font-size:1.15rem; margin-bottom:14px;}
+  .journey-closing p{font-size:1rem; color:rgba(247,243,234,0.78); max-width:70ch; line-height:1.75;}
+  .journey-closing p + p{margin-top:12px;}
+  .journey-closing strong{color:var(--ochre); font-weight:600;}
+
+  /* ---------- GALLERY ---------- */
+  .gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    grid-auto-rows:170px;
+    gap:14px;
+  }
+  .gallery-grid figure{
+    margin:0; position:relative; overflow:hidden;
+    background:#00000010;
+  }
+  .gallery-grid img{
+    width:100%; height:100%; object-fit:cover;
+    transition:transform .5s ease;
+  }
+  .gallery-grid figure:hover img{transform:scale(1.045);}
+  .gallery-grid figcaption{
+    position:absolute; left:0; right:0; bottom:0;
+    padding:36px 16px 12px;
+    font-size:0.86rem;
+    color:#fff;
+    line-height:1.4;
+    background:linear-gradient(to top, rgba(15,23,48,0.94) 55%, rgba(15,23,48,0));
+  }
+  .g1{grid-column:span 3; grid-row:span 2;}
+  .g3{grid-column:span 3; grid-row:span 2;}
+
+  /* ---------- RECOGNITION ---------- */
+  .recognition-item{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:70px;
+    align-items:center;
+  }
+  .recognition-item + .recognition-item{
+    margin-top:8vh;
+    padding-top:8vh;
+    border-top:1px solid var(--line);
+  }
+  .recognition-item img{
+    border:1px solid var(--line);
+  }
+  .split-text .tag{font-size:0.82rem; color:var(--coral); margin-bottom:16px;}
+  .split-text h3{font-size:1.6rem; max-width:24ch; margin-bottom:18px;}
+  .split-text p{font-size:1.02rem; max-width:48ch; color:rgba(33,28,22,0.72);}
+  .split-text p + p{margin-top:14px;}
+  .badge-row{
+    display:flex; gap:14px; margin-top:28px; flex-wrap:wrap;
+  }
+  .badge{
+    font-size:0.86rem;
+    border:1px solid var(--line);
+    padding:7px 14px;
+    border-radius:2px;
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact{
+    background:var(--navy-deep);
+    color:var(--parchment);
+  }
+  .contact .wrap{padding-top:12vh; padding-bottom:8vh;}
+  .contact h2{
+    font-size:clamp(2rem,5vw,3.4rem);
+    max-width:16ch;
+    line-height:1.08;
+  }
+  .contact-links{
+    margin-top:44px;
+    display:flex; flex-wrap:wrap; gap:16px 48px;
+  }
+  .contact-links a{
+    text-decoration:none;
+    border-bottom:1px solid var(--line-light);
+    padding-bottom:6px;
+    font-size:1.05rem;
+    transition:border-color .2s, color .2s;
+  }
+  .contact-links a:hover{border-color:var(--ochre); color:var(--ochre);}
+  footer{
+    border-top:1px solid var(--line-light);
+    margin-top:70px;
+    padding-top:22px;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+    font-size:0.88rem;
+    color:rgba(247,243,234,0.65);
+  }
+
+  /* ---------- HERO CAPTION ---------- */
+  .hero-img-caption{
+    position:absolute; left:0; right:0; bottom:0;
+    padding:18px 22px 16px;
+    font-size:0.86rem;
+    color:rgba(247,243,234,0.9);
+    background:linear-gradient(to top, rgba(15,23,48,0.85), rgba(15,23,48,0));
+  }
+
+  /* ---------- WORK / PROJECTS ---------- */
+  .subhead{
+    font-family:'Fraunces',serif;
+    font-size:1.3rem;
+    margin-bottom:8px;
+  }
+  .subhead-intro{
+    font-size:0.98rem;
+    color:rgba(33,28,22,0.68);
+    max-width:60ch;
+    margin-bottom:36px;
+  }
+  .work-block + .work-block{
+    margin-top:9vh;
+    padding-top:9vh;
+    border-top:1px solid var(--line);
+  }
+  .projects-grid{
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:28px;
+  }
+  .project-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:32px;
+    display:flex;
+    flex-direction:column;
+  }
+  .project-card .project-tag{
+    font-size:0.82rem;
+    font-weight:600;
+    letter-spacing:0.03em;
+    text-transform:uppercase;
+    color:var(--coral);
+    margin-bottom:14px;
+  }
+  .project-card h4{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:1.28rem;
+    margin-bottom:6px;
+    line-height:1.3;
+  }
+  .project-card .project-tools{
+    font-size:0.85rem;
+    color:var(--ochre);
+    font-weight:500;
+    margin-bottom:16px;
+  }
+  .project-card p{
+    font-size:0.98rem;
+    color:rgba(33,28,22,0.75);
+    line-height:1.65;
+  }
+  .project-card p + p{margin-top:12px;}
+  .project-card .badge-row{margin-top:22px;}
+  .project-card .badge{font-size:0.8rem; padding:6px 12px;}
+
+  /* ---------- RECOGNITION PHOTO CAPTION ---------- */
+  .recognition-photo-caption{
+    margin-top:10px;
+    font-size:0.85rem;
+    color:rgba(33,28,22,0.62);
+    line-height:1.5;
+  }
+
+  /* ---------- CV LINK ---------- */
+  .nav-cv{
+    background:var(--navy);
+    color:var(--parchment) !important;
+    padding:8px 16px;
+    border-radius:2px;
+    opacity:1 !important;
+    font-weight:500;
+  }
+  .nav-cv:hover{background:var(--navy-deep);}
+  .hero-cv{
+    display:inline-block;
+    margin-top:28px;
+    padding:12px 22px;
+    border:1px solid rgba(247,243,234,0.4);
+    color:var(--parchment);
+    text-decoration:none;
+    font-size:0.92rem;
+    border-radius:2px;
+    transition:border-color .2s, background .2s;
+  }
+  .hero-cv:hover{border-color:var(--ochre); background:rgba(247,243,234,0.06);}
+  .contact-cv{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 24px;
+    background:var(--ochre);
+    color:var(--navy-deep) !important;
+    text-decoration:none;
+    font-weight:600;
+    font-size:0.95rem;
+    border-radius:2px;
+    border-bottom:none !important;
+  }
+  .contact-cv:hover{background:#dba043; border-color:transparent !important; color:var(--navy-deep) !important;}
+
+  /* ---------- SKILLS ---------- */
+  .skills-grid{
+    display:grid;
+    grid-template-columns:repeat(3, minmax(0,1fr));
+    gap:40px;
+  }
+  .skills-col h4{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:1.1rem;
+    color:var(--navy);
+    margin-bottom:18px;
+    padding-bottom:12px;
+    border-bottom:1px solid var(--line);
+  }
+  .skills-col ul{
+    list-style:none;
+    margin:0; padding:0;
+  }
+  .skills-col li{
+    font-size:0.96rem;
+    color:rgba(33,28,22,0.75);
+    padding:9px 0;
+    border-bottom:1px solid rgba(33,28,22,0.08);
+  }
+  .skills-col li:last-child{border-bottom:none;}
+
+  /* ---------- EDUCATION & CERTIFICATIONS ---------- */
+  .edu-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    margin-top:56px;
+    padding-top:48px;
+    border-top:1px solid var(--line);
+  }
+  .edu-block h4{
+    font-family:'Fraunces',serif;
+    font-size:1.1rem;
+    color:var(--navy);
+    margin-bottom:16px;
+  }
+  .edu-item h5{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:1.05rem;
+    margin-bottom:4px;
+  }
+  .edu-item .edu-meta{
+    font-size:0.88rem;
+    color:rgba(33,28,22,0.6);
+    margin-bottom:2px;
+  }
+  .edu-item .edu-dates{
+    font-size:0.82rem;
+    color:var(--coral);
+  }
+  .cert-list{
+    font-size:0.94rem;
+    color:rgba(33,28,22,0.75);
+    line-height:1.9;
+  }
+  .lang-row{
+    margin-top:22px;
+    padding-top:22px;
+    border-top:1px solid var(--line);
+    font-size:0.94rem;
+    color:rgba(33,28,22,0.7);
+  }
+  .lang-row strong{color:var(--navy);}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:860px){
+    .hero .wrap{grid-template-columns:1fr;}
+    .hero-img{min-height:280px; order:-1;}
+    .hero-img::after{background:linear-gradient(to top, var(--navy) 0%, rgba(22,33,62,0) 30%);}
+    .hero-text{padding:6vh 6vw;}
+    .hero-meta{gap:26px; flex-wrap:wrap;}
+    .section-head{grid-template-columns:1fr; gap:14px;}
+    .about-grid{grid-template-columns:1fr; gap:36px;}
+    .journey-grid{grid-template-columns:1fr;}
+    .journey-card{padding:26px;}
+    .projects-grid{grid-template-columns:1fr;}
+    .skills-grid{grid-template-columns:1fr; gap:28px;}
+    .edu-grid{grid-template-columns:1fr; gap:32px;}
+    .gallery-grid{grid-template-columns:repeat(2,1fr); grid-auto-rows:160px;}
+    .g1,.g2,.g3,.g4,.g5{grid-column:span 2; grid-row:span 2;}
+    .recognition-item{grid-template-columns:1fr; gap:34px;}
+    .nav-links{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="nav-name">Sibongumusa Mabuza</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#journey">Journey</a>
+      <a href="#work">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#recognition">Recognition</a>
+      <a href="#contact">Contact</a>
+      <a class="nav-cv" href="files/Sibongumusa_Mabuza_CV.pdf" download="Sibongumusa_Mabuza_CV.pdf">Download CV</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-text">
+      <div class="eyebrow">Digital Skills Facilitator, Administrator &amp; Systems Developer — Eswatini</div>
+      <h1>Building the systems and skills behind a <em>digitally empowered</em> Eswatini.</h1>
+      <p class="hero-role">I currently provide tutoring and teaching — in person and online — to people looking to build digital skills, drawing on experience as a systems developer, student administrator, and digital skills facilitator across Emalalatini Development Centre and ESCCOM's Universal Access Service Fund, where my work spanned everything from registering students and handling enquiries by phone and email to running full training programmes.</p>
+      <div class="hero-meta">
+        <div><span class="num">1,300+</span><span class="lab">Learners trained at the Ezulwini Community ICT Centre, ESCCOM/UASF Youth Digital Skills Programme</span></div>
+        <div><span class="num">65+</span><span class="lab">Schools reached through Moodle LMS piloting</span></div>
+        <div><span class="num">2</span><span class="lab">Organisations — Emalalatini &amp; ESCCOM</span></div>
+        <div><span class="num">2026</span><span class="lab">UASF contract concluded, February</span></div>
+      </div>
+      <a class="hero-cv" href="files/Sibongumusa_Mabuza_CV.pdf" download="Sibongumusa_Mabuza_CV.pdf">Download full CV (PDF) ↓</a>
+    </div>
+    <div class="hero-img">
+      <img src="images/image_01.png" alt="Sibongumusa Mabuza in ESCCOM Universal Access Service Fund uniform">
+    
+      <div class="hero-img-caption">At ESCCOM's Head Office in Mbabane, wearing the Universal Access Service Fund uniform</div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="section" id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="tag">About</div>
+        <h2>Bringing systems and skills together, for people who need both</h2>
+      </div>
+      <div class="about-grid">
+        <div>
+          <p>My work has moved between two things that usually stay separate: building the systems behind digital learning, and standing in front of a room teaching people to use them. At Emalalatini Development Centre I built student management systems and helped pilot a Moodle learning platform across schools in Eswatini. At ESCCOM, through the Universal Access Service Fund, I took that same platform-building instinct into the classroom — facilitating hands-on digital skills training for out-of-school youth and adults, both online and in person.</p>
+          <p>Today, I continue that work independently — providing tutoring and teaching to people who want to build their digital skills, one-on-one or in small groups.</p>
+        </div>
+        <div class="quote-block">
+          <p>"True impact begins with people. Every empowered youth is a result of dedication, compassion, and belief in the potential of others."</p>
+          <div class="attr">— From ESCCOM's "Connecting the Unconnected" program report</div>
+          <img src="images/image_02.jpg" alt="Closing slide of the ESCCOM Digital Skills Training Programme report, September 2025">
+          <div class="quote-photo-credit">Screenshot from ESCCOM's September 2025 Digital Skills Training Programme report.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="journey" id="journey">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="tag">My Professional Journey</div>
+        <h2>Two chapters, one thread: technology that people can actually use</h2>
+        <p>My professional journey has brought together information technology, systems development, digital learning, and community digital skills training.</p>
+      </div>
+
+      <div class="journey-grid">
+
+        <article class="journey-card">
+          <div class="journey-number">01</div>
+          <h3>Emalalatini Development Centre College</h3>
+          <p>My first work experience was an internship at Emalalatini Development Centre College — after the internship, I was kept on under contract, working across IT, systems development, and marketing while supporting digital learning initiatives.</p>
+          <p>I built a <strong>Student Registration System</strong> and a <strong>Student Performance Management System</strong> to support student administration and academic performance tracking, and was also responsible for registering students directly.</p>
+          <p>Alongside the systems work, I handled day-to-day <strong>administration</strong> for the department — emails and correspondence, phoning students directly about registration and enquiries, and keeping records up to date.</p>
+          <p>As part of piloting the <strong>Moodle digital learning platform</strong> across roughly <strong>65 schools</strong> around Eswatini, I visited schools directly to orient both students and teachers on the system — introducing students to ICT for the first time, and helping students and lecturers troubleshoot technical issues along the way.</p>
+          <figure class="journey-photo">
+            <img src="images/image_03.jpg" alt="Sibongumusa seated among rows of desktop computers during a school visit to pilot the Moodle LMS">
+            <figcaption>On-site at one of the ~65 partner schools — orienting students and teachers on the Moodle LMS during the platform's pilot rollout.</figcaption>
+          </figure>
+        </article>
+
+        <article class="journey-card">
+          <div class="journey-number">02</div>
+          <h3>ESCCOM — Universal Access Service Fund</h3>
+          <p>After Emalalatini, I joined the <strong>Eswatini Communications Commission (ESCCOM)</strong> through the <strong>Universal Access Service Fund (UASF)</strong> as a Digital Skills Facilitator on the National Digital Skills Programme, delivering the "Connecting the Unconnected" project at the Ezulwini Community ICT Centre — run in partnership with the MTN Eswatini Foundation, UNDP, SEDCO, ENYC, and Wanderport Eswatini.</p>
+          <p>I trained out-of-school youth and adults, in person and online, building confidence with computers, Microsoft 365, Google Workspace, Gmail, Canva, cybersecurity, data protection, and other career-related digital tools — alongside learner administration: attendance, timetables, performance reporting, certificates, and day-to-day correspondence — emailing and calling learners directly to follow up on enquiries and attendance.</p>
+          <p>Facilitating both physical and online lessons meant I was as much a <strong>tutor</strong> as a facilitator — walking learners through concepts one-on-one as often as leading a full room.</p>
+          <p>My ESCCOM/UASF contract concluded in <strong>February 2026</strong>, as the program's pilot wrapped its final cohort.</p>
+          <figure class="journey-photo">
+            <img src="images/image_04.png" alt="Sibongumusa Mabuza in ESCCOM Universal Access Service Fund uniform">
+            <figcaption>At ESCCOM's head office in Mbabane during the Universal Access Service Fund's "Connecting the Unconnected" digital skills programme.</figcaption>
+          </figure>
+        </article>
+
+      </div>
+
+      <div class="journey-closing">
+        <h3>What connects both chapters</h3>
+        <p>From developing digital learning systems and supporting Moodle implementation in schools, to facilitating practical computer skills within communities — the thread running through both roles has been connecting <strong>technology, learning, and people</strong>.</p>
+        <p>I'm drawn to work that uses technology not just to build systems, but to open up access to learning and strengthen digital confidence — so that no learner is left behind.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="work">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="tag">The Work</div>
+        <h2>What I've actually built and delivered</h2>
+        <p>Four projects across two organisations — from spreadsheets and code to a nationwide learning platform and a community training programme.</p>
+      </div>
+
+      <div class="work-block">
+        <h3 class="subhead">Projects</h3>
+        <p class="subhead-intro">Systems I designed and built, and programmes I helped deliver on the ground.</p>
+
+        <div class="projects-grid">
+
+          <article class="project-card">
+            <div class="project-tag">Systems Development</div>
+            <h4>Student Registration System</h4>
+            <div class="project-tools">Built with Microsoft Excel &amp; Google Forms</div>
+            <p>Emalalatini Development Centre College needed a faster, more reliable way to take in new students than paper forms and manual filing. I designed a Google Form as the front-end intake point, feeding into a structured Excel workbook that organised, sorted, and verified each student's registration details.</p>
+            <p>I also registered students directly at the front line, so the system was shaped by what actually slowed the process down — and built to fix it.</p>
+            <div class="badge-row">
+              <div class="badge">Excel</div>
+              <div class="badge">Google Forms</div>
+              <div class="badge">Student Administration</div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-tag">Data &amp; Academic Tracking</div>
+            <h4>Student Performance Management System</h4>
+            <div class="project-tools">Built with Java &amp; HTML</div>
+            <p>To help staff track academic performance without digging through paper report cards, I developed a Student Performance Management System using Java for the underlying logic and HTML for the interface — giving the department a straightforward way to record, view, and monitor how students were performing over time.</p>
+            <p>It sits alongside the Registration System as part of the same push: replace manual record-keeping with tools staff could actually rely on.</p>
+            <div class="badge-row">
+              <div class="badge">Java</div>
+              <div class="badge">HTML</div>
+              <div class="badge">Academic Records</div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-tag">Digital Learning &amp; School Support</div>
+            <h4>Moodle Learning Platform Pilot</h4>
+            <div class="project-tools">Moodle LMS · On-site training &amp; support</div>
+            <p>I helped pilot Moodle as a digital learning platform across roughly 65 schools in Eswatini — for many students and teachers, their first real introduction to ICT. That meant visiting schools in person to set up and orient both groups on the system, then staying hands-on to troubleshoot the technical issues that came up along the way.</p>
+            <p>I later helped co-build "Information and Communication Technology (5924)" — an interactive Moodle course for the Eswatini Prevocational Certificate of Secondary Education, built directly on top of that pilot work.</p>
+            <div class="badge-row">
+              <div class="badge">Moodle</div>
+              <div class="badge">Teacher &amp; Student Onboarding</div>
+              <div class="badge">65+ Schools</div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-tag">Community Digital Inclusion</div>
+            <h4>Digital Skills Training — "Connecting the Unconnected"</h4>
+            <div class="project-tools">Microsoft 365 · Google Workspace · Gmail · Canva · Cybersecurity &amp; Data Protection</div>
+            <p>As a Digital Skills Youth Facilitator for ESCCOM's Universal Access Service Fund, I delivered hands-on training to out-of-school youth and adults at Ezulwini Community Hall, in person and online — building confidence with everyday tools like Microsoft 365, Google Workspace, Gmail, and Canva, plus practical cybersecurity and data protection basics.</p>
+            <p>I ran the programme end-to-end: attendance, timetables, performance reporting, certificates, and following up directly with learners by phone and email — as much a tutor working one-on-one as a facilitator leading the room.</p>
+            <div class="badge-row">
+              <div class="badge">Digital Literacy</div>
+              <div class="badge">Cybersecurity Basics</div>
+              <div class="badge">Learner Support</div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <div class="work-block">
+        <h3 class="subhead">Moments from the Work</h3>
+        <p class="subhead-intro">Training sessions, learner support, and outreach — from both chapters of the work.</p>
+        <div class="gallery-grid">
+        <figure class="g1">
+          <img src="images/image_05.jpg" alt="Sibongumusa working at a desk alongside a colleague">
+          <figcaption>Working session at the ESCCOM offices — coordinating learner records and programme admin for the UASF digital skills cohort.</figcaption>
+        </figure>
+        <figure class="g3">
+          <img src="images/image_06.jpg" alt="Team photo under the Emalalatini Development Centre tent">
+          <figcaption>With the Emalalatini Development Centre team — the department behind the Student Registration System, Performance Management System, and Moodle pilot.</figcaption>
+        </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="skills">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="tag">Skills &amp; Background</div>
+        <h2>What's behind the work</h2>
+        <p>The skills, training, and qualifications that support the projects and programmes above.</p>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skills-col">
+          <h4>ICT &amp; Digital Skills</h4>
+          <ul>
+            <li>Digital Skills Training &amp; Facilitation</li>
+            <li>Systems Development &amp; ICT Support</li>
+            <li>Microsoft Office &amp; Microsoft 365</li>
+            <li>Moodle &amp; E-Learning Platforms</li>
+            <li>Cybersecurity Awareness</li>
+          </ul>
+        </div>
+        <div class="skills-col">
+          <h4>Administration &amp; Support</h4>
+          <ul>
+            <li>Records, Data &amp; Records Management</li>
+            <li>Report Writing &amp; Documentation</li>
+            <li>Scheduling &amp; Correspondence</li>
+            <li>Customer Service &amp; Front-Line Support</li>
+            <li>Confidentiality &amp; Attention to Detail</li>
+          </ul>
+        </div>
+        <div class="skills-col">
+          <h4>Communications &amp; Media</h4>
+          <ul>
+            <li>Social Media Management (Instagram)</li>
+            <li>Adobe Photoshop, Premiere Pro &amp; Canva</li>
+            <li>Digital Content Creation &amp; Photography</li>
+            <li>Community &amp; Stakeholder Engagement</li>
+            <li>English &amp; siSwati Communication</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="edu-grid">
+        <div class="edu-block">
+          <h4>Education</h4>
+          <div class="edu-item">
+            <h5>Associate Degree in Business Information Technology</h5>
+            <div class="edu-meta">Limkokwing University of Creative Technology — Awarded Distinction in Industry Project</div>
+            <div class="edu-dates">2020 – 2023</div>
+          </div>
+          <div class="lang-row"><strong>Languages:</strong> English (Fluent) &middot; siSwati (Native)</div>
+        </div>
+        <div class="edu-block">
+          <h4>Certifications</h4>
+          <div class="cert-list">IT Customer Support Basics (CISCO) &middot; Introduction to Cybersecurity (CISCO) &middot; Cybersecurity Training for Teachers (COL) &middot; Artificial Intelligence for Teachers (COL) &middot; Monitoring &amp; Evaluation (COL) &middot; Innovative Finance (UCT) &middot; TEFL Certificate</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="testimonials">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="tag">Testimonials</div>
+        <h2>What learners say</h2>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-quote">"Sibongumusa is an excellent digital skills facilitator. She explains complex concepts in a simple and engaging way, creating a welcoming learning environment. Her professionalism, patience, and dedication helped learners gain confidence in using technology."</p>
+        <div class="attr">— <strong>Jacquelene Banda</strong>, High School Student</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="recognition">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="tag">Recognition</div>
+        <h2>Credit where the work earned it</h2>
+      </div>
+
+      <div class="recognition-item">
+        <img src="images/image_07.jpg" alt="Sibongumusa at a video production workshop, operating alongside a camera crew">
+        <div class="recognition-photo-caption">On set during the Commonwealth of Learning media production workshop, Emalalatini Development Centre College.</div>
+        <div class="split-text">
+          <h3>Commonwealth of Learning workshop</h3>
+          <p>Selected to take part in a media production workshop sponsored by the Commonwealth of Learning, hosted at Emalalatini Development Centre College.</p>
+          <p>That workshop turned out to be timely preparation — the video and photography skills I picked up there carried straight over into work I later did shooting photos for student ID creation.</p>
+          <div class="badge-row">
+            <div class="badge">Commonwealth of Learning</div>
+            <div class="badge">Video &amp; Photography</div>
+            <div class="badge">Emalalatini Development Centre</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="recognition-item">
+        <img src="images/image_08.jpg" alt="Moodle enrolment page for the ICT Prevocational course listing Sibongumusa Mabuza as a teacher">
+        <div class="recognition-photo-caption">Enrolment page for "Information and Communication Technology (5924)" on edc.colvee.org, listing Sibongumusa as a course teacher.</div>
+        <div class="split-text">
+          <h3>Co-built the ICT Prevocational course on Moodle</h3>
+          <p>One of the teachers credited on "Information and Communication Technology (5924)," an interactive online course built on Emalalatini Development Centre's Moodle platform (edc.colvee.org) for Eswatini secondary students pursuing the Eswatini Prevocational Certificate of Secondary Education.</p>
+          <p>The course walks students through core computer skills, safe internet use, online communication and collaboration, and problem-solving with technology — built alongside co-teachers Sandile Khumalo, Malwande Mamba, and Nkhosingiphile Mamba, and grew directly out of the Moodle piloting work at Emalalatini.</p>
+          <div class="badge-row">
+            <div class="badge">Moodle Course Design</div>
+            <div class="badge">Emalalatini Development Centre</div>
+            <div class="badge">EPCSE Curriculum</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>Let's connect on digital skills, systems, or content.</h2>
+    <div class="contact-links">
+      <a href="mailto:mabuzasibongumusa@gmail.com">mabuzasibongumusa@gmail.com</a>
+      <a href="https://tinyurl.com/EDC-ENQUIRIES" target="_blank" rel="noopener">EDC Enquiries — tinyurl.com/EDC-ENQUIRIES</a>
+    </div>
+    <a class="contact-cv" href="files/Sibongumusa_Mabuza_CV.pdf" download="Sibongumusa_Mabuza_CV.pdf">Download my full CV (PDF)</a>
+    <footer>
+      <span>Sibongumusa Mabuza — Digital Skills Facilitator &amp; Systems Developer</span>
+      <span>Emalalatini Development Centre · ESCCOM Universal Access Service Fund</span>
+    </footer>
+  </div>
+</section>
+
+</body>
+</html>
